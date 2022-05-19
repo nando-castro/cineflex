@@ -1,0 +1,39 @@
+.topo {
+    width: 100%;
+    height: 67px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #C3CFD9;
+    color: #E8833A;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 40px;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info {
+    border: 1px solid #000;
+    
+    margin-top: 68px;
+    height: 67px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: #293845;
+}
+
+.main {
+    margin-top: 135px;
+    width: 100%;
+    height: auto;
+}

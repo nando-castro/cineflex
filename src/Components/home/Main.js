@@ -1,26 +1,20 @@
 import React from 'react';
 import axios from 'axios';
 import img from '../../Assets/img/loading.gif';
+import { Link, useParams } from 'react-router-dom';
+import Movie from './Movie';
 
-function Filme({ source }) {
-    return (
-        <div className='flex-center filme'>
-            <img src={source} />
-        </div>
-    );
-}
-
-function Loading (){
+function Loading() {
     return (
         <>
-        <img src={img} alt='Carregando' />
+            <img src={img} alt='Carregando' />
         </>
     );
 }
 
-export default function Main() {
+export default function Main({ setReturnButton }) {
 
-    const [filmes, setFilmes] = React.useState([]);
+    const [movies, setMovies] = React.useState([]);
 
     React.useEffect(() => {
 
@@ -28,20 +22,29 @@ export default function Main() {
 
         promise.then(response => {
 
-            setFilmes([...response.data])
+            setMovies([...response.data])
         });
 
     }, []);
-    console.log(filmes);
+    console.log(movies);
+
     return (
-        <div className='flex-center main'>
-            {
-                filmes.length === 0 ? <Loading /> :
-                    filmes.map(value =>
-                        <Filme
-                            source={value.posterURL}
-                        />)}
-        </div>
+        <>
+            <div className="flex-center info">
+                <p>Selecione o filme</p>
+            </div>
+            <div className='flex-center main'>
+                {
+                    movies.length === 0 ? <Loading /> :
+                        movies.map((movie) =>
+                            <Movie
+                                key={movie.id}
+                                source={movie.posterURL}
+                                idMovie={movie.id}
+                                setReturnButton={setReturnButton}
+                            />)}
+            </div>
+        </>
     );
 }
 

@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
-function Footer({title, posterURL, sessionData}) {
-    
+export default function Footer({ title, posterURL, sessionData }) {
+
     return Object.keys(sessionData).length === 0 ?
-        <Rodape>
+        <Baseboard>
             <div className='background-movie'>
                 <img src={posterURL} alt={title} />
             </div>
             <p>{title}</p>
-        </Rodape>
-    :   <Rodape>
+        </Baseboard>
+        : <Baseboard>
             <div className='background-movie'>
                 <img src={posterURL} alt={title} />
             </div>
@@ -17,12 +17,10 @@ function Footer({title, posterURL, sessionData}) {
                 <p>{title}</p>
                 <p>{sessionData.weekday} - {sessionData.time}</p>
             </div>
-        </Rodape>
+        </Baseboard>
 }
 
-export default Footer;
-
-const Rodape = styled.footer`
+const Baseboard = styled.footer`
     background: #DFE6ED;
     border: 1px solid #9EADBA;
     height: 117px;

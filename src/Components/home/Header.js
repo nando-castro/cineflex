@@ -1,0 +1,53 @@
+import styled from 'styled-components'
+import { useNavigate } from "react-router-dom";
+
+export default function Header({ returnButton }) {
+    const navigate = useNavigate();
+    function goBack() {
+        navigate(-1);
+    }
+
+    return (
+        <Head>
+            <ion-icon name="arrow-back-circle-outline" id={`${returnButton}`} onClick={goBack}></ion-icon>
+            <h1>CINEFLEX</h1>
+            <ion-icon name="videocam-outline" id="movie-icon"></ion-icon>
+        </Head>
+    );
+}
+
+const Head = styled.header`
+    width: 100%;
+    height: 67px;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(195, 207, 217, 1);
+    
+    h1 {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 34px;
+        line-height: 40px;
+        color: #E8833A;
+    }
+    ion-icon {
+        font-size: 40px;
+        color: #E8833A;
+    }
+    #movie-icon{
+        position: absolute; 
+        right: 0;
+        margin-right: 20px
+    }
+    #button-return {
+        position: absolute; 
+        left: 0;
+        margin-left: 20px;
+        display: none;
+    }
+`
